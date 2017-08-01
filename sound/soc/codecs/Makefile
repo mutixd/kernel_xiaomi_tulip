@@ -430,3 +430,7 @@ obj-y += sdm660_cdc/
 obj-y += msm_sdw/
 obj-$(CONFIG_SND_SOC_MAX98937) += max98937/
 obj-$(CONFIG_SND_SOC_TFA9894)	+= tfa98xx/
+
+# TODO: remove me b/62058353
+subdir-ccflags-y += \
+	-Wno-enum-conversion
