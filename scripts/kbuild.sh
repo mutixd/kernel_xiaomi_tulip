@@ -5,7 +5,7 @@
 #
 
 DEVICE="xiaomi tulip"
-TC_PATH="$HOME/clang-r498229b"
+TC_PATH="$HOME/clang-r510928"
 COMPILER_NAME="clang"
 LD_NAME="ld.lld"
 CROSS_COMPILE_ARM64="aarch64-linux-gnu-"
@@ -67,7 +67,7 @@ function start_sticker() {
 
 # clone toolchain
 function clone_tc() {
-    git clone --depth=1 --single-branch -b clang-r498229b https://gitlab.com/Neebe3289/android_prebuilts_clang_host_linux-x86 $TC_PATH
+    git clone --depth=1 --single-branch -b 18.0.0 https://gitlab.com/GhostMaster69-dev/android-clang $TC_PATH
 }
 
 # clone anykernel3
