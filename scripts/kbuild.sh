@@ -1,11 +1,11 @@
 #! /bin/bash
 
 # Copyright (C) 2020 StarLight5234
-# Copyright (C) 2021-2023 Unitrix Kernel
+# Copyright (C) 2021-2024 Unitrix Kernel
 #
 
 DEVICE="xiaomi tulip"
-TC_PATH="$HOME/clang-r510928"
+TC_PATH="$HOME/clang-android"
 COMPILER_NAME="clang"
 LD_NAME="ld.lld"
 CROSS_COMPILE_ARM64="aarch64-linux-gnu-"
@@ -67,7 +67,7 @@ function start_sticker() {
 
 # clone toolchain
 function clone_tc() {
-    git clone --depth=1 --single-branch -b 18.0.0 https://gitlab.com/GhostMaster69-dev/android-clang $TC_PATH
+    git clone --depth=1 --single-branch -b 18.0.1 https://gitlab.com/GhostMaster69-dev/android-clang $TC_PATH
 }
 
 # clone anykernel3
