@@ -41,7 +41,7 @@ module_param_named(enable_process_reclaim, enable_process_reclaim, int,
 #endif
 
 /* The max number of pages tried to be reclaimed in a single run */
-int per_swap_size = SWAP_CLUSTER_MAX * 32;
+int per_swap_size = 128 * 32;
 module_param_named(per_swap_size, per_swap_size, int, S_IRUGO | S_IWUSR);
 
 int reclaim_avg_efficiency;
@@ -49,12 +49,12 @@ module_param_named(reclaim_avg_efficiency, reclaim_avg_efficiency,
 			int, S_IRUGO);
 
 /* The vmpressure region where process reclaim operates */
-static unsigned long pressure_min = 50;
-static unsigned long pressure_max = 90;
+static unsigned long pressure_min = 20;
+static unsigned long pressure_max = 40;
 module_param_named(pressure_min, pressure_min, ulong, S_IRUGO | S_IWUSR);
 module_param_named(pressure_max, pressure_max, ulong, S_IRUGO | S_IWUSR);
 
-static short min_score_adj = 360;
+static short min_score_adj = 150;
 module_param_named(min_score_adj, min_score_adj, short,
 	S_IRUGO | S_IWUSR);
 
@@ -70,7 +70,7 @@ module_param_named(min_score_adj, min_score_adj, short,
 static int swap_eff_win = 2;
 module_param_named(swap_eff_win, swap_eff_win, int, S_IRUGO | S_IWUSR);
 
-static int swap_opt_eff = 50;
+static int swap_opt_eff = 20;
 module_param_named(swap_opt_eff, swap_opt_eff, int, S_IRUGO | S_IWUSR);
 
 #ifdef CONFIG_ANDROID_PR_KILL
@@ -78,12 +78,12 @@ module_param_named(swap_opt_eff, swap_opt_eff, int, S_IRUGO | S_IWUSR);
  * OOM Killer will be called if the total number of
  * file pages (active) reaches this limit
  */
-static int free_file_limit = 36000;
-module_param_named(free_file_limit, free_file_limit, int, 0644);
+static int free_file_limit = 50000;
+module_param_named(free_file_limit, free_file_limit, int, S_IRUGO | S_IWUSR);
 
 /* Number of SWAP pages in MiB below which tasks should be killed */
-static int free_swap_limit = 40;
-module_param_named(free_swap_limit, free_swap_limit, int, 0644);
+static int free_swap_limit = 50;
+module_param_named(free_swap_limit, free_swap_limit, int, S_IRUGO | S_IWUSR);
 
 static unsigned long reported_pressure;
 #endif
